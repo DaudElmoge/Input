@@ -21,7 +21,8 @@ function App() {
     // We use destructuring to extract the name and value properties from the event target
     const { name, value } = e.target;
     setFormdata((prevData) => ({
-      ...prevData,
+      ...prevData, //this spreads the previous state
+      // This creates a new object with the previous state and updates the specific field
       [name]: value,
     }));
   };
@@ -33,6 +34,11 @@ function App() {
     // and logs the form data to the console
     e.preventDefault();
     console.log("Form Data Submitted:");
+
+    setFormdata({
+      name: "",
+      password: "",
+    });
   };
   return (
     <>
