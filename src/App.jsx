@@ -33,6 +33,13 @@ function App() {
     // It prevents the default behavior of the form submission (which would refresh the page)
     // and logs the form data to the console
     e.preventDefault();
+
+    // Check if either the name or password field is empty
+    if (!formdata.name.trim() || !formdata.password.trim()) {
+      alert("Please fill out all fields before submitting."); // Show an alert if fields are empty
+      return; // Stop the form submission
+    }
+
     console.log("Form Data Submitted:");
 
     setFormdata({
